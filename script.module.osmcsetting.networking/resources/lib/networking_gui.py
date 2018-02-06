@@ -684,8 +684,14 @@ class networking_gui(xbmcgui.WindowXMLDialog):
             except:
                 pswd.setLabel('kodi')
                 hpwd.setLabel('kodi')
-            impw.setSelected(vidlb.get('importwatchedstate', 'true') == 'true')
-            impr.setSelected(vidlb.get('importresumepoint', 'true') == 'true')
+            try:
+                impw.setSelected(vidlb.get('importwatchedstate', 'true') == 'true')
+            except:
+                impw.setSelected(False)
+            try:
+                impr.setSelected(vidlb.get('importresumepoint', 'true') == 'true')
+            except:
+                impr.setSelected(False)
 
         else:
             self.getControl(MYSQL_VIDEO_TOGGLE).setSelected(False)
