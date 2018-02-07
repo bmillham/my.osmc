@@ -731,10 +731,14 @@ class networking_gui(xbmcgui.WindowXMLDialog):
 
         if self.getControl(MYSQL_VIDEO_TOGGLE).isSelected():
 
+            defaults = {'name': 'MyVideos',
+                        'port': '3306'}
             for sql_item, ctl in zip(sql_subitems, MYSQL_VIDEO_VALUES):
                 if ctl in MYSQL_PASS:
                     ctl -= 100000
                 video[sql_item] = self.getControl(ctl).getLabel()
+                if sql_item in defaults and not video[sql_item]:
+                    video[sql_item] = defaults[sql_item]
 
                 log('ctl %s : sql item %s : %s' %(ctl, sql_item, self.getControl(ctl).getLabel()))
     
@@ -765,10 +769,14 @@ class networking_gui(xbmcgui.WindowXMLDialog):
 
         if self.getControl(MYSQL_MUSIC_TOGGLE).isSelected():
 
+            defaults = {'name': 'MyMusic',
+                        'port': '3306'}
             for sql_item, ctl in zip(sql_subitems, MYSQL_MUSIC_VALUES):
                 if ctl in MYSQL_PASS:
                     ctl = ctl - 100000
                 music[sql_item] = self.getControl(ctl).getLabel()
+                if sql_item in defaults and not music[sql_item]:
+                    music[sql_item] = defaults[sql_item]
 
             sub_dict['musicdatabase'] = music
 
