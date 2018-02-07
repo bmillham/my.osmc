@@ -785,7 +785,7 @@ class networking_gui(xbmcgui.WindowXMLDialog):
         ''' Takes a dictionary and writes it to the advancedsettings.xml file '''
 
         # check the dictionary to see if it is valid
-        dictionary_valid, invalidity_type = self.ASE.validate_advset_dict(dictionary)
+        dictionary_valid, invalidity_type = self.ASE.validate_advset_dict(dictionary, no_pw_ok=True)
 
         if not dictionary_valid:
             if invalidity_type == 'missing mysql':
