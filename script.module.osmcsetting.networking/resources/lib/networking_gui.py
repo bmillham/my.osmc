@@ -676,7 +676,7 @@ class networking_gui(xbmcgui.WindowXMLDialog):
 
             name.setLabel(video.get('name', 'MyVideos'))
             host.setLabel(video.get('host', '___ : ___ : ___ : ___'))
-            port.setLabel(video.get('port', ''))
+            port.setLabel(video.get('port', '3306'))
             user.setLabel(video.get('user', 'kodi'))
             try:
                 pswd.setLabel('*' * len(video.get('pass', 'kodi')))
@@ -704,7 +704,7 @@ class networking_gui(xbmcgui.WindowXMLDialog):
 
             name.setLabel(music.get('name', 'MyMusic'))
             host.setLabel(music.get('host', '___ : ___ : ___ : ___'))
-            port.setLabel(music.get('port', ''))
+            port.setLabel(music.get('port', '3306'))
             user.setLabel(music.get('user', 'kodi'))
             try:
                 pswd.setLabel('*' * len(music.get('pass', 'kodi')))
